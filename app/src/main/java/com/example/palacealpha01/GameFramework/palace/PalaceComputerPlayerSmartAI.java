@@ -35,7 +35,7 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 
 
 	/**
-	 *
+	 * Default constructor for PalaceComputerPlayerSmartAI.java
 	 * @param name
 	 */
 	public PalaceComputerPlayerSmartAI(String name)
@@ -48,7 +48,9 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: PalaceComputerPlayerSmartAI() constructor
 
 	/**
-	 *
+	 * This method receives a GameInfo object, which can be a PalaceGameState or NotYourTurnInfo object,
+	 * and based on the data within the PalaceGameState object, sends a GameAction object to PalaceLocalGame.java,
+	 * which is how the SmartAI makes moves in the game.
 	 * @param info
 	 */
 	@Override
@@ -264,7 +266,7 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 
 
 	/**
-	 *
+	 * This method sends the head gameAction, of the action_queue, to PalaceLocalGame.java
 	 */
 	private void send_first_action()
 	{
@@ -274,7 +276,8 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}
 
 	/**
-	 *
+	 * This function takes an array of Pair objects, and sorts it based on the integer value of the
+	 * Rank enum of the Card object within each Pair object.
 	 * @param arr
 	 */
 	private static void merge_sort(Pair[] arr)
@@ -285,7 +288,8 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: merge_sort() function
 
 	/**
-	 *
+	 * This function takes a sub array of 'arr' and sorts it based on the integer value of the Rank
+	 * enum of the Card object within each Pair object.
 	 * @param arr
 	 * @param l
 	 * @param r
@@ -322,7 +326,7 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: merge_sort() function
 
 	/**
-	 *
+	 * This function takes two sub arrays of 'arr' and merges them together, in order.
 	 * @param arr
 	 * @param l
 	 * @param m
@@ -384,7 +388,8 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: merge() function
 
 	/**
-	 *
+	 * This function takes an ArrayList of Pair objects, and sorts it based on the integer value of
+	 * the Rank enum of the Card object within each Pair object.
 	 * @param arr_list
 	 */
 	private static void merge_sort(ArrayList<Pair> arr_list)
@@ -395,7 +400,8 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: merge_sort() function
 
 	/**
-	 *
+	 * This function takes a sub ArrayList of 'arr_list' and sorts it based on the integer value of
+	 * Rank enum of the Card object within each Pair object.
 	 * @param arr_list
 	 * @param l
 	 * @param r
@@ -432,7 +438,7 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	}//END: merge_sort() function
 
 	/**
-	 *
+	 * This function takes two sub ArrayLists of 'arr_list' and merges them together, in order.
 	 * @param arr_list
 	 * @param l
 	 * @param m
