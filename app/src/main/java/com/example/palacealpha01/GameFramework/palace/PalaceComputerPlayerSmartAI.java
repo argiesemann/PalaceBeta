@@ -3,8 +3,6 @@
  */
 package com.example.palacealpha01.GameFramework.palace;
 
-import android.util.Log;
-
 import com.example.palacealpha01.GameFramework.GameComputerPlayer;
 import com.example.palacealpha01.GameFramework.actionMessage.GameAction;
 import com.example.palacealpha01.GameFramework.infoMessage.GameInfo;
@@ -20,8 +18,6 @@ import static com.example.palacealpha01.GameFramework.palace.Location.PLAYER_TWO
 import static com.example.palacealpha01.GameFramework.palace.Location.PLAYER_TWO_UPPER_PALACE;
 import static com.example.palacealpha01.GameFramework.palace.Rank.JACK_INT;
 import static com.example.palacealpha01.GameFramework.palace.Rank.QUEEN_INT;
-import static com.example.palacealpha01.GameFramework.palace.Rank.SEVEN;
-import static com.example.palacealpha01.GameFramework.palace.Rank.TEN_INT;
 
 /**
  * @author Maximilian
@@ -35,6 +31,8 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	private boolean is_palace_built;
 	private boolean started_building_palace;
 	private ArrayList<GameAction> action_queue;
+
+
 
 	/**
 	 *
@@ -156,7 +154,6 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 				}
 
 				for (Pair p : cards_to_be_selected)
-//					this.game.sendAction(new PalaceSelectPalaceCardAction(this, p));
 					this.action_queue.add(new PalaceSelectPalaceCardAction(this, p));
 
 				this.send_first_action();
@@ -224,7 +221,6 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 				merge_sort(legal_hand);
 
 				Pair smallest_pair = legal_hand.get(0);
-//				this.game.sendAction(new PalaceSelectCardAction(this, smallest_pair));
 				this.action_queue.add(new PalaceSelectCardAction(this, smallest_pair));
 
 				if (smallest_pair.get_card().get_rank().get_int_value() >= QUEEN_INT)
@@ -238,56 +234,14 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 					 i < legal_hand.size() &&
 					 legal_hand.get(i).get_card().get_rank() == smallest_pair.get_card().get_rank();
 					 i++)
-//					this.game.sendAction(new PalaceSelectCardAction(this, legal_hand.get(i)));
 					this.action_queue.add(new PalaceSelectCardAction(this, legal_hand.get(i)));
 				this.send_first_action();
-
-/*				int smallest_cnt = 0;
-				for (int i = 1;
-					 legal_hand.get(i).get_card().get_rank() == smallest_pair.get_card().get_rank() &&
-					 i < legal_hand.size();
-					 i++, smallest_cnt++);
-
-				for (int i = 0; i < smallest_cnt; i++)
-					this.game.sendAction(new PalaceSelectCardAction(this, legal_hand.get(i)));
-
-/*				Pair smallest_pair = null;
-				int smallest_rank = TEN_INT + 1;
-				int p_int;
-				for (Pair p : legal_hand)
-				{
-					p_int = p.get_card().get_rank().get_int_value();
-					if (p_int < smallest_rank)
-					{
-						smallest_pair = p;
-						smallest_rank = p_int;
-					}
-				}
-
-				// if the smallest card is a Queen or Higher,
-				// 		then play it
-				if (smallest_rank >= QUEEN_INT)
-				{
-					this.game.sendAction(new PalaceSelectCardAction(this, smallest_pair));
-					return;
-				}
-
-				Pair[] cards_to_be_selected = new Pair[4];
-				int i = 0;
-				for (Pair p : legal_hand)
-					if (p.get_card().get_rank().get_int_value() == smallest_rank)
-						cards_to_be_selected[i++] = p;
-
-				for (Pair pair : cards_to_be_selected)
-					if (pair != null)
-						this.game.sendAction(new PalaceSelectCardAction(this, pair));
-*/			}
+			}
 			else
 			{
 				merge_sort(legal_upper_palace);
 
 				Pair smallest_pair = legal_upper_palace.get(0);
-//				this.game.sendAction(new PalaceSelectCardAction(this, smallest_pair));
 				this.action_queue.add(new PalaceSelectCardAction(this, smallest_pair));
 
 				if (smallest_pair.get_card().get_rank().get_int_value() >= QUEEN_INT)
@@ -301,52 +255,13 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 					 i < legal_upper_palace.size() &&
 					 legal_upper_palace.get(i).get_card().get_rank() == smallest_pair.get_card().get_rank();
 					 i++)
-//					this.game.sendAction(new PalaceSelectCardAction(this, legal_upper_palace.get(i)));
 					this.action_queue.add(new PalaceSelectCardAction(this, legal_upper_palace.get(i)));
 				this.send_first_action();
-
-/*				int smallest_cnt = 0;
-				for (int i = 1;
-					 legal_upper_palace.get(i).get_card().get_rank() == p.get_card().get_rank() &&
-					 i < legal_upper_palace.size();
-					 i++, smallest_cnt++);
-
-				for (int i = 0; i < smallest_cnt; i++)
-					this.game.sendAction(new PalaceSelectCardAction(this, legal_upper_palace.get(i)));
-
-/*				Pair smallest_pair = null;
-				int smallest_rank = TEN_INT + 1;
-				int p_int;
-				for (Pair p : legal_upper_palace)
-				{
-					p_int = p.get_card().get_rank().get_int_value();
-					if (p_int < smallest_rank)
-					{
-						smallest_pair = p;
-						smallest_rank = p_int;
-					}
-				}
-
-				// if the smallest card is a Queen or Higher,
-				// 		then play it
-				if (smallest_rank >= QUEEN_INT)
-				{
-					this.game.sendAction(new PalaceSelectCardAction(this, smallest_pair));
-					return;
-				}
-
-				Pair[] cards_to_be_selected = new Pair[3];
-				int i = 0;
-				for (Pair p : legal_upper_palace)
-					if (p.get_card().get_rank().get_int_value() == smallest_rank)
-						cards_to_be_selected[i++] = p;
-
-				for (Pair p : cards_to_be_selected)
-					if (p != null)
-						this.game.sendAction(new PalaceSelectCardAction(this, p));
-*/			}
+			}
 		}
 	}//END: receiveInfo() method
+
+
 
 	/**
 	 *

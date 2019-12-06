@@ -27,27 +27,18 @@ public class Card implements Serializable
 {
 	private Suit suit;
 	private Rank rank;
-//	private Bitmap image;
 
-	public Card(Rank rank, Suit suit) /*BitmapDrawable image)*/
+	public Card(Rank rank, Suit suit)
 	{
 		this.suit = suit;
 		this.rank = rank;
-//      this.image = image;
 	}//END: Card() constructor
 
 	public Card(Card that)
 	{
 		this.suit = that.suit;
 		this.rank = that.rank;
-//		this.image = that.image;
 	}//END: Card() copy constructor
-
-/*	public void draw(Canvas c, float x, float y, Paint p)
-	{
-		c.drawBitmap(this.image, x, y, p);
-	}//END: draw() method
-*/
 
 	public Rank get_rank()
 	{
@@ -135,24 +126,8 @@ public class Card implements Serializable
 			return false;
 		if (this.rank != ((Card) obj).rank)
 			return false;
-//		if (! this.image.equals(((Card) obj).image))
-		//	return false;
 
 		return true;
 	}//END: equals() method
-
-/*	public void setImage(Bitmap image)
-	{
-		this.image = image;
-	}
-*/
-/*	public Bitmap getImage()
-	}//END: setImage() method
-
-	public Bitmap getImage()
-	{
-		return image;
-	}
-*/
 	}//END: Card Class
 

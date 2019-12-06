@@ -53,6 +53,7 @@ public enum Rank implements Serializable
 	}//END: Rank() enum constructor
 
 
+
 	public int get_int_value()
 	{
 		return this.int_value;
