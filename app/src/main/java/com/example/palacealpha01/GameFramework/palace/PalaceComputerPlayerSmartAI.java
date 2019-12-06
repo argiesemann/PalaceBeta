@@ -348,6 +348,9 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 		}
 	}//END: receiveInfo() method
 
+	/**
+	 *
+	 */
 	private void send_first_action()
 	{
 		this.game.sendAction(this.action_queue.get(0));
@@ -374,6 +377,21 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	 */
 	private static void merge_sort(Pair[] arr, int l, int r)
 	{
+		/* EXTERNAL CITATION
+		 *      Date:		2th December 2019
+		 * 	    Problem:	The SmartAI's algorithm for determining which cards to pick for its upper
+		 * 						palace, or which cards cards to play each turn, was inefficient. I found
+		 * 						that if the list of legal cards the SmartAI could choose from was sorted,
+		 * 						its algorithm would be much simpler. I chose merge-sort, because it's
+		 * 						almost as efficient as quick-sort, and there's a chance the cards could
+		 * 						be given to the SmartAI already sorted, which would make quick-sort
+		 * 						really inefficient.
+		 * 	    Resource:	https://www.geeksforgeeks.org/merge-sort/
+		 * 	    Solution:	I read the GeeksForGeeks page on merge-sort, to get the idea of how to implement
+		 * 						merge-sort in Java. Some of this code was copied, and the rest was written
+		 * 						by me, but most of it was copied.
+		 */
+
 		if (l < r          &&
 			r < arr.length)
 		{
@@ -397,6 +415,21 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 	 */
 	private static void merge(Pair[] arr, int l, int m, int r)
 	{
+		/* EXTERNAL CITATION
+		 *      Date:		2th December 2019
+		 * 	    Problem:	The SmartAI's algorithm for determining which cards to pick for its upper
+		 * 						palace, or which cards cards to play each turn, was inefficient. I found
+		 * 						that if the list of legal cards the SmartAI could choose from was sorted,
+		 * 						its algorithm would be much simpler. I chose merge-sort, because it's
+		 * 						almost as efficient as quick-sort, and there's a chance the cards could
+		 * 						be given to the SmartAI already sorted, which would make quick-sort
+		 * 						really inefficient.
+		 * 	    Resource:	https://www.geeksforgeeks.org/merge-sort/
+		 * 	    Solution:	I read the GeeksForGeeks page on merge-sort, to get the idea of how to implement
+		 * 						merge-sort in Java. Some of this code was copied, and the rest was written
+		 * 						by me, but most of it was copied.
+		 */
+
 		// Sub-array sizes
 		int len_l = (m - l) + 1;
 		int len_r = r - m;
@@ -446,8 +479,29 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 		merge_sort(arr_list, l, r);
 	}//END: merge_sort() function
 
+	/**
+	 *
+	 * @param arr_list
+	 * @param l
+	 * @param r
+	 */
 	private static void merge_sort(ArrayList<Pair> arr_list, int l, int r)
 	{
+		/* EXTERNAL CITATION
+		 *      Date:		2th December 2019
+		 * 	    Problem:	The SmartAI's algorithm for determining which cards to pick for its upper
+		 * 						palace, or which cards cards to play each turn, was inefficient. I found
+		 * 						that if the list of legal cards the SmartAI could choose from was sorted,
+		 * 						its algorithm would be much simpler. I chose merge-sort, because it's
+		 * 						almost as efficient as quick-sort, and there's a chance the cards could
+		 * 						be given to the SmartAI already sorted, which would make quick-sort
+		 * 						really inefficient.
+		 * 	    Resource:	https://www.geeksforgeeks.org/merge-sort/
+		 * 	    Solution:	I read the GeeksForGeeks page on merge-sort, to get the idea of how to implement
+		 * 						merge-sort in Java. Some of this code was copied, and the rest was written
+		 * 						by me, but most of it was copied.
+		 */
+
 		if (l < r               &&
 			r < arr_list.size())
 		{
@@ -462,8 +516,30 @@ public class PalaceComputerPlayerSmartAI extends GameComputerPlayer
 		}
 	}//END: merge_sort() function
 
+	/**
+	 *
+	 * @param arr_list
+	 * @param l
+	 * @param m
+	 * @param r
+	 */
 	private static void merge(ArrayList<Pair> arr_list, int l, int m, int r)
 	{
+		/* EXTERNAL CITATION
+		 *      Date:		2th December 2019
+		 * 	    Problem:	The SmartAI's algorithm for determining which cards to pick for its upper
+		 * 						palace, or which cards cards to play each turn, was inefficient. I found
+		 * 						that if the list of legal cards the SmartAI could choose from was sorted,
+		 * 						its algorithm would be much simpler. I chose merge-sort, because it's
+		 * 						almost as efficient as quick-sort, and there's a chance the cards could
+		 * 						be given to the SmartAI already sorted, which would make quick-sort
+		 * 						really inefficient.
+		 * 	    Resource:	https://www.geeksforgeeks.org/merge-sort/
+		 * 	    Solution:	I read the GeeksForGeeks page on merge-sort, to get the idea of how to implement
+		 * 						merge-sort in Java. Some of this code was copied, and the rest was written
+		 * 						by me, but most of it was copied.
+		 */
+
 		// Sub-array sizes
 		int len_l = (m - l) + 1;
 		int len_r = r - m;
